@@ -44,7 +44,7 @@ export class LoginComponent {
 
   validateLogin(loginForm: LoginForm) {
     if (loginForm.username == 'prueba' && loginForm.password == '1234') {
-      this.router.navigate(['/productos']);
+      this.router.navigate(['/dashboard']);
     } else {
       alert('Usuario o contraseña incorrectos');
     }
