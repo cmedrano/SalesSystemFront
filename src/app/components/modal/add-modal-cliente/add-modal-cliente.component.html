@@ -1,0 +1,66 @@
+<div class="dialog-header">
+    <h2>Agregar Cliente</h2>
+    <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content>
+
+    <!-- NOMBRE -->
+    <div class="form-section">
+        <h6 class="section-title">Nombre</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput [(ngModel)]="clientCreate.name" placeholder="Nombre del cliente" required>
+        </mat-form-field>
+    </div>
+
+    <!-- APELLIDO -->
+    <div class="form-section">
+        <h6 class="section-title">Apellido</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput [(ngModel)]="clientCreate.lastName" placeholder="Apellido del cliente" required>
+        </mat-form-field>
+    </div>
+
+    <!-- DIRECCION -->
+    <div class="form-section">
+        <h6 class="section-title">Direccion</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput type="text" [(ngModel)]="clientCreate.address" placeholder="Ingrese direccion del cliente" required>
+            <mat-icon matPrefix>location_on</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <!-- TELEFONO -->
+    <div class="form-section">
+        <h6 class="section-title">Telefono</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput type="tel" [(ngModel)]="clientCreate.phone" placeholder="Ej: (54) 1234-5678" required>
+            <mat-icon matPrefix>phone</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <!-- CORREO -->
+    <div class="form-section">
+        <h6 class="section-title">Correo Electrónico</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput type="email" [(ngModel)]="clientCreate.email" placeholder="ejemplo@gmail.com" required>
+            <mat-icon matSuffix>email</mat-icon>
+
+            <!-- Mensajes de error -->
+            @if (emailInput.hasError('required')) {
+            <mat-error>El correo es obligatorio</mat-error>
+            }
+            @if (emailInput.hasError('email')) {
+            <mat-error>No es un formato de email válido</mat-error>
+            }
+        </mat-form-field>
+    </div>
+
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="close()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="saveNewClient()">
+            Guardar
+        </button>
+    </mat-dialog-actions>
