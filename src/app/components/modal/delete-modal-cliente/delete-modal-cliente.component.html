@@ -1,0 +1,28 @@
+<div class="dialog-header">
+    <h2>Eliminar Cliente</h2>
+    <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <p> ¿Seguro que deseas eliminar el Cliente
+        @if (data.clientDelete.name) {
+        <strong> "{{ data.clientDelete.name }} {{data.clientDelete.lastName}}" </strong>?.
+        <div class="div-text-warning">
+            <mat-icon color="warn"> warning </mat-icon>
+            <span> Esta acción no se puede deshacer.</span>
+        </div>
+    }
+    </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="close()">
+        Cancelar
+    </button>
+
+    <button mat-raised-button class="btn-color-delete" (click)="confirm()">
+        Eliminar
+    </button>
+</mat-dialog-actions>

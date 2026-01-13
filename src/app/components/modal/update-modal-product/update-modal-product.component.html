@@ -1,0 +1,92 @@
+<div class="dialog-header">
+    <h2>Editar producto</h2>
+    <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content>
+
+    <!-- NOMBRE -->
+    <div class="form-section">
+        <h6 class="section-title">Nombre</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput [(ngModel)]="product.name">
+        </mat-form-field>
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <div class="form-section">
+        <h6 class="section-title">Descripción</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <textarea matInput rows="3" [(ngModel)]="product.description"></textarea>
+        </mat-form-field>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <section class="form-section">
+        <h4>Categorías</h4>
+
+        <div class="mb-2">
+            @for (cat of product.categories; track cat.id; let i = $index) {
+            <span class="badge bg-success me-1">
+                {{ cat.name }}
+                <button class="btn-close btn-close-white ms-1" (click)="removeCategory(i)"></button>
+            </span>
+            }
+        </div>
+
+        <select class="form-select" #categorySelect (change)="
+                  addCategory(+categorySelect.value);
+                  categorySelect.value = '' ">
+            <option selected disabled value="">Seleccionar categoría</option>
+            @for ( cat of availableCategories() ; track $index) {
+            <option [value]="cat.id">
+                {{ cat.name }}
+            </option>
+            }
+        </select>
+
+    </section>
+
+    <!-- IMAGEN -->
+    <section class="form-section">
+        <h4>Imagen</h4>
+
+        <div class="image-preview-container">
+            @if (imagePreview) {
+            <div class="image-wrapper">
+                <button class="remove-image-btn" type="button" (click)="removeImage()">
+                    <mat-icon>close</mat-icon>
+                </button>
+                <img [src]="imagePreview" alt="Preview" class="image-preview" />
+            </div>
+            } @else {
+            <div class="image-placeholder">
+                <mat-icon class="placeholder-icon">image</mat-icon>
+                <span>Sin imagen</span>
+            </div>
+            }
+        </div>
+        <!-- <input #fileInput type="file" accept="image/*" (change)="onImageSelected($event)" /> -->
+
+        <input type="file" hidden #fileInput (change)="onImageSelected($event)" />
+
+        <button mat-stroked-button color="primary" (click)="fileInput.click()">
+            <mat-icon>upload</mat-icon>
+            Cambiar imagen
+        </button>
+
+        @if (uploadError) {
+        <mat-error>{{ uploadError }}</mat-error>
+        }
+    </section>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cancelar</button>
+    <button mat-raised-button class="btn-color-edit" (click)="save()">
+        Guardar cambios
+    </button>
+</mat-dialog-actions>

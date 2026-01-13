@@ -6,6 +6,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ProductListComponent } from '../product-list/product-list.component';
+import { ClientsComponent } from '../clients/clients.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +23,16 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     MatButtonModule,
     RouterModule,
+    FormsModule,
+    ProductListComponent,
+    ClientsComponent,
   ],
 })
-export class DashboardComponent {}
+
+export class DashboardComponent {
+  currentSection: string = 'dashboard';
+  
+  showSection(section: string) {
+    this.currentSection = section;
+  }
+}

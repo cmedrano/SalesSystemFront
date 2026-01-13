@@ -1,0 +1,24 @@
+.dialog-header {
+  background: #c62828;
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.btn-color-delete {
+    background: #c62828;
+    color: white;
+}
+
+.div-text-warning{
+  display: flex;
+  justify-content: start;
+  text-align: center;
+}
+
+.div-text-warning span{
+  margin-left: 2%;
+}

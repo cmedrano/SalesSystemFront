@@ -1,0 +1,50 @@
+<div class="dialog-header">
+    <h2>Editar Cliente</h2>
+    <button mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content>
+
+    <!-- DIRECCION -->
+    <div class="form-section">
+        <h6 class="section-title">Direccion</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput [(ngModel)]="editedClient.address" name="address">
+            <mat-icon matPrefix>location_on</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <!-- TELEFONO -->
+    <div class="form-section">
+        <h6 class="section-title">Telefono</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput type="tel" [(ngModel)]="editedClient.phone" name="phone">
+            <mat-icon matPrefix>phone</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <!-- CORREO -->
+    <div class="form-section">
+        <h6 class="section-title">Correo Electrónico</h6>
+        <mat-form-field appearance="outline" class="w-100">
+            <input matInput type="email" [(ngModel)]="editedClient.email" >
+            <mat-icon matSuffix>email</mat-icon>
+            
+            <!-- Mensajes de error -->
+            @if (emailInput.hasError('required')) {
+            <mat-error>El correo es obligatorio</mat-error>
+            }
+            @if (emailInput.hasError('email')) {
+            <mat-error>No es un formato de email válido</mat-error>
+            }
+        </mat-form-field>
+    </div>
+
+    <mat-dialog-actions align="end">
+        <button mat-button (click)="close()">Cancelar</button>
+        <button mat-raised-button class="btn-color-edit" (click)="saveNewClient()">
+            Guardar
+        </button>
+    </mat-dialog-actions>
