@@ -1,10 +1,76 @@
-html,
-body {
-  height: 100%;
+body.dark-mode {
+  --gris-claro: #5c5c5c;
+  --gris-oscuro: #2d2d2d;
+  --azul-oscuro: #283478;
 }
-body {
-  margin: 0;
+
+body{
+  border: solid black;
 }
-:root {
-    --background-page:#7d93a7;
+
+/* --------- Tema oscuro --------- */
+
+body.dark-mode .mat-toolbar,
+body.dark-mode .dialog-header{
+  background-color: var(--azul-oscuro) !important;
+}
+
+body.dark-mode .mat-sidenav-content,
+body.dark-mode .mat-card{
+  background-color: var(--gris-oscuro) !important;
+}
+
+body.dark-mode th,
+body.dark-mode td,
+body.dark-mode input, 
+body.dark-mode select,
+body.dark-mode .card-item{
+  border: 1px solid white !important;
+}
+
+body.dark-mode table,
+body.dark-mode .card-item,
+body.dark-mode .form-control, 
+body.dark-mode .form-select{
+  background-color: var(--gris-claro) !important;
+  color: white !important;
+}
+
+body.dark-mode tbody tr:nth-of-type(odd) {
+  background-color: gray !important;
+}
+
+body.dark-mode .mat-toolbar,
+body.dark-mode .mat-card,
+body.dark-mode .mat-drawer,
+body.dark-mode .mat-drawer span,
+body.dark-mode .mat-sidenav-content,
+body.dark-mode .card-item, 
+body.dark-mode .card-item span,
+body.dark-mode .card-item .mat-icon,
+body.dark-mode .form-control::placeholder{
+  color: white !important;
+}
+
+body.dark-mode .sidenav {
+  background: linear-gradient(180deg, #4285f4 0%, #2c3e50 100%) !important;
+}
+
+/* --------- Modal (Tema oscuro) --------- */
+body.dark-mode .form-section mat-form-field{
+  background-color: var(--gris-claro);
+  border: 1px solid white;
+}
+
+body.dark-mode .mat-mdc-dialog-surface,
+body.dark-mode mat-dialog-content{
+  background-color: var(--gris-oscuro);
+}
+
+body.dark-mode .form-section h6,
+body.dark-mode .form-section input::placeholder,
+body.dark-mode .form-section input,
+body.dark-mode mat-dialog-content,
+body.dark-mode mat-dialog-actions button{
+  color: white !important;
 }

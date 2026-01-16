@@ -1,11 +1,22 @@
 .sidenav-container {
   height: 90vh;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px 5px 5px 5px;  /* Arriba, Derecha, Abajo, Izquierda */
 }
 
 .sidenav {
   width: 230px;
   padding: 15px;
-  background: #eeeeee;
+  background: linear-gradient(180deg, #4285f4 0%, #2c3e50 100%);
+  color: white;
+  border-style: solid;
+  border-color: black;
+  border-width: 0px 3px 0px 0px;  /* Arriba, Derecha, Abajo, Izquierda */
+}
+
+.sidenav mat-icon, span{
+  color: white;
 }
 
 mat-sidenav a {
@@ -45,23 +56,43 @@ mat-sidenav a {
 }
 
 .card-item {
-  aspect-ratio: 1 / 1;   
+  aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10%;
+  border-radius: 16px;
   cursor: pointer;
-  transition: 
-    background-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  background: white;
+  border: 1px solid black;
+  transition: all 0.3s ease;
 }
 
 .card-item:hover {
-  background-color: #eeeeee;
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  background: linear-gradient(135deg, #4285f4 0%, #2c3e50 100%);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(66, 133, 244, 0.3);
+}
+
+.card-item:hover mat-icon,
+.card-item:hover .card-text span {
+  color: white !important;
+}
+
+.card-item mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  margin-bottom: 15px;
+  color: #4285f4;
+  transition: color 0.3s ease;
+}
+
+.card-text span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  transition: color 0.3s ease;
 }
 
 .dashboard-section{
