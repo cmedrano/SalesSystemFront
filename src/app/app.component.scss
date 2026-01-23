@@ -1,3 +1,20 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+.menu-toolbar{
+  background-color: #4182EE;
+  color:  white;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px 5px 2px 5px;  /* Arriba, Derecha, Abajo, Izquierda */
+}
+
+.btn-perfil .mat-icon{
+  color: white;
+  font-size: 20px;
+}
+
+.btn-perfil span{
+  color: white;
+}

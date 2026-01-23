@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { LoginForm } from '../../models/login-form.model';
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
   selector: 'app-login',
@@ -24,13 +25,16 @@ import { LoginForm } from '../../models/login-form.model';
     MatButtonModule,
     MatCardModule,
     CommonModule,
-  ],
+    MatIcon
+],
 })
 export class LoginComponent {
   loginForm = this.fb.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
+
+  hidePassword = true;
 
   constructor(private fb: NonNullableFormBuilder, private router: Router) {}
 

@@ -5,7 +5,7 @@
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Usuario</mat-label>
-        <input matInput formControlName="username" />
+        <input matInput formControlName="username" placeholder="Ingrese su Usuario"/>
         <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
           El usuario es obligatorio
         </mat-error>
@@ -13,18 +13,18 @@
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Contraseña</mat-label>
-        <input matInput type="password" formControlName="password" />
+        <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Ingrese su contraseña" />
+        <!-- Ojito -->
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Mostrar contraseña'" [attr.aria-pressed]="!hidePassword">
+          <mat-icon> {{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
         <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-          La contraseña es obligatoria
+          La Contraseña es obligatorio
         </mat-error>
       </mat-form-field>
 
-      <button
-        mat-raised-button
-        color="primary"
-        class="full-width"
-        type="submit"
-      >
+      <button mat-raised-button color="primary" class="full-width" type="submit">
         Ingresar
       </button>
     </form>

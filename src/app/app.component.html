@@ -1,13 +1,45 @@
 @if (!hideMenu()) {
-  <mat-toolbar color="primary">
+  <mat-toolbar class="menu-toolbar">
     <span>{{ title }}</span>
   
     <span class="spacer"></span>
   
-    <!-- <button mat-button routerLink="/dashboard">Inicio</button> -->
-    <button mat-button routerLink="/profile">Perfil</button>
-    <button mat-button routerLink="/settings">Configuración</button>
-    <button mat-button routerLink="/login">Cerrar Sesión</button>
+    <button class="btn-perfil" mat-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon>account_circle</mat-icon>
+      <span> Perfil</span>
+    </button>
+
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>Mi Información</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>edit</mat-icon>
+        <span>Editar Perfil</span>
+      </button>
+      <button mat-menu-item (click)="toggleDarkMode()">
+        <mat-icon>
+          {{ isDarkMode ? 'light_mode' : 'dark_mode' }}
+        </mat-icon>
+        <span>
+          {{ isDarkMode ? 'Modo Claro' : 'Modo Oscuro' }}
+        </span>
+      </button>
+      <button mat-menu-item >
+        <mat-icon>security</mat-icon>
+        <span>Seguridad</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Configuración</span>
+      </button>
+      <button mat-menu-item routerLink="/login">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 }
 
