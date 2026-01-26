@@ -54,13 +54,6 @@ export class AppComponent {
     }
   }
 
-  // changeMode(): void{
-  //   if (this.isDarkMode) {
-  //     this.isDarkMode = false 
-  //   } else {
-  //     this.isDarkMode = true
-  //   }
-  // }
 
   
 }
